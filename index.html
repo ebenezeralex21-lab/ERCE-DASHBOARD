@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ERCE | Emergency Coordination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">E</div><div><b>ERCE</b><small>COORDINATION ENGINE</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav active" href="#overview">▦ <span>Overview</span></a>
+    <a class="nav" href="#ambulances">◉ <span>Ambulances</span></a>
+    <a class="nav" href="#emergencies">⚑ <span>Emergency queue</span></a>
+    <a class="nav" href="#junctions">⌖ <span>Junction alerts</span></a>
+    <div class="nav-label">SYSTEM</div>
+    <a class="nav" href="#departments">▤ <span>Departments</span></a>
+    <a class="nav" href="#events">◷ <span>Event log</span></a>
+    <div class="sidebar-bottom"><span class="pulse"></span> Backend connection <b id="connection">Checking</b><small>ERCE Prototype · v1.0.0</small></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">EMERGENCY RESPONSE / CONTROL ROOM</div><h1>Operations overview</h1><p>Monitor ambulance activity and coordination events.</p></div><div class="top-actions"><span class="live"><i></i> LIVE MONITORING</span><button id="refresh" class="refresh">↻ Refresh</button></div></header>
+    <section class="metrics" id="overview">
+      <article class="metric"><span>REGISTERED AMBULANCES</span><strong id="m-ambulances">—</strong><small>All registered vehicles</small></article>
+      <article class="metric"><span>ACTIVE EMERGENCIES</span><strong id="m-emergencies">—</strong><small>Open emergency records</small></article>
+      <article class="metric"><span>CONFIGURED JUNCTIONS</span><strong id="m-junctions">—</strong><small>Geofences enabled</small></article>
+      <article class="metric"><span>PENDING MODEL COMMANDS</span><strong id="m-commands">—</strong><small>Simulation requests only</small></article>
+    </section>
+    <section class="panel" id="ambulances">
+      <div class="panel-head"><div><h2>Ambulance fleet</h2><p>Latest reported position for each registered ambulance</p></div><span class="count" id="fleet-count">0 VEHICLES</span></div>
+      <div class="table-wrap"><table><thead><tr><th>AMBULANCE</th><th>DRIVER</th><th>GPS POSITION</th><th>SPEED</th><th>GPS STATUS</th></tr></thead><tbody id="fleet"><tr><td colspan="5" class="empty">Waiting for data…</td></tr></tbody></table></div>
+    </section>
+    <div class="two-col">
+      <section class="panel" id="emergencies"><div class="panel-head"><div><h2>Emergency priority queue</h2><p>EXTREME → CRITICAL → EMERGENCY</p></div></div><div id="queue" class="stack"><div class="empty">No emergency records</div></div></section>
+      <section class="panel" id="junctions"><div class="panel-head"><div><h2>Junction approach alerts</h2><p>Geofence events detected by ERCE</p></div></div><div id="junction-list" class="stack"><div class="empty">No junction events</div></div></section>
+    </div>
+    <div class="two-col">
+      <section class="panel" id="departments"><div class="panel-head"><div><h2>ERCE departments</h2><p>Registered backend capabilities</p></div></div><div id="department-list" class="department-grid"></div></section>
+      <section class="panel" id="events"><div class="panel-head"><div><h2>System event log</h2><p>Recent backend activity</p></div></div><div id="event-list" class="stack compact"><div class="empty">No events yet</div></div></section>
+    </div>
+    <footer>ERCE v1.0.0 · Academic prototype · Traffic commands are for a miniature model only.</footer>
+  </main>
+</div>
+<script src="/static/app.js"></script>
+</body></html>
